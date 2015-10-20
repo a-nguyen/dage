@@ -1,8 +1,8 @@
-var React = require('react');
+const React = require('react');
 
-var HomeContact = React.createClass({
+let HomeContact = React.createClass({
 
-  render: function() {
+  render: function render() {
     return (
       <div>
         <section className="bg-dark">
@@ -12,7 +12,6 @@ var HomeContact = React.createClass({
                       <p>Made Possible By: </p>
                       <h2 className="section-heading">Team Dage</h2>
                   </div>
-                  
                   <div className="col-lg-4 text-center">
                       <i className="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
                       <p><a href="mailto:your-email@your-domain.com">dageprotect@gmail.com</a></p>
@@ -27,3 +26,4 @@ var HomeContact = React.createClass({
 });
 
 module.exports = HomeContact;
+

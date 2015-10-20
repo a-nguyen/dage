@@ -4,6 +4,10 @@ var React = require('react');
 //112.5B emails sent per day. source: http://www.radicati.com/wp/wp-content/uploads/2015/02/Email-Statistics-Report-2015-2019-Executive-Summary.pdf
 var HomeAbout = React.createClass({
 
+  renderMainView: function(){
+
+  },
+
   render: function() {
     return (
       <section className="bg-primary" id="about">
@@ -14,7 +18,7 @@ var HomeAbout = React.createClass({
                       <p className="text-faded" style={{fontSize:'28px', fontWeight:'400'}}>An estimated 112 billion corporate emails were sent out everyday in 2015. Each email has the potential to leak corporate secrets, confidential client information, or PR-damaging content. With no way to intelligently and efficiently monitor these messages, companies cannot proactively reduce their risk of damaging emails being leaked out.</p>
                       <p className="text-faded" style={{fontSize:'28px', fontWeight:'400'}}>Däge actively and silently monitors outbound emails from your email server, searching for hazardous emails that match a customizable criteria. Proprietary algorithms intelligently identify hazardous content with a 99% accuracy. Review flagged emails individually or in bulk to evaluate the appropriate course of action.</p>
                       <hr />
-                      <a href="/mainview" className="btn btn-default btn-xl">Login Here!</a>
+                      <a onClick={renderMainView}className="btn btn-default btn-xl">Login Here!</a>
                   </div>
               </div>
           </div>

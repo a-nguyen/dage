@@ -1,12 +1,12 @@
 import { compose, createStore, applyMiddleware } from 'redux';
-import { devTools, persistState } from 'redux-devtools';
+import { devTools/*, persistState*/ } from 'redux-devtools';
 import thunk from 'redux-thunk';
 import rootReducer from 'reducers';
 
 let createStoreWithMiddleware;
-let middleware = [thunk];
+const middleware = [thunk];
 
-if (__DEBUG__) {
+if (__DEBUG__) {  // TODO: Try hard Coding False!!!!!!!!!!!!!!
   createStoreWithMiddleware = compose(
     applyMiddleware(...middleware),
     devTools(),

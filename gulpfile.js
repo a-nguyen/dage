@@ -5,18 +5,21 @@ var source = require('vinyl-source-stream');
 var browserify = require('browserify');
 var watchify = require('watchify');
 var reactify = require('reactify');
+var babelify = require('babelify');
 var streamify = require('gulp-streamify');
 var jscs = require('gulp-jscs');
 var gulpNpmTest = require('gulp-npm-test');
 
 var path = {
-  HTML: 'client/src/dashboard.html',
+  HTML: '/Users/andrew/MKS/thesis/dage/src/entry-points',
+  // HTML: 'client/src/dashboard.html',
   MINIFIED_OUT: 'build.min.js',
   OUT: 'build.js',
   DEST: 'client/dist',
   DEST_BUILD: 'client/dist/build',
   DEST_SRC: 'client/dist/src',
-  ENTRY_POINT: './client/src/js/app.jsx',
+  ENTRY_POINT: '/Users/andrew/MKS/thesis/dage/src/entry-points/client.js',
+  // ENTRY_POINT: './client/src/js/app.jsx',
 };
 
 //this task auto-fixes according to the code style defined in .jscs file found inside the root folder.
@@ -42,7 +45,8 @@ gulp.task('watch',   function() {
 
   var watcher = watchify(browserify({
     entries: [path.ENTRY_POINT],
-    transform: [reactify],
+    transform: [babelify],
+    path: ['./src/'],
     debug: true,
     cache: {}, packageCache: {}, fullPaths: true,
   }));
@@ -61,7 +65,7 @@ gulp.task('watch',   function() {
 gulp.task('build', function() {
   browserify({
     entries: [path.ENTRY_POINT],
-    transform: [reactify],
+    transform: [babelify],
   })
     .bundle()
     .pipe(source(path.MINIFIED_OUT))

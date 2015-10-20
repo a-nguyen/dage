@@ -22,6 +22,8 @@ var connection = mysql.createConnection({
 });
 
 app.use(bodyParser.json());
+app.use('/', express.static('../dist/client'));
+app.use('/styles', express.static('../src/styles'));
 
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3000');
@@ -31,10 +33,10 @@ app.use(function(req, res, next) {
 });
 
 //Default route for server side code. Currently using webpacks.
-app.get('/', function(req, res) {
-  // db.insertEmail(req.body);
-  res.send('Hello, world!');
-});
+// app.get('/', function(req, res) {
+//   // db.insertEmail(req.body);
+//   res.send('Hello, world!');
+// });
 
 //dashboard is the placeholder url for the dashboard url for the client
 app.get('/emailData', function(req, res) {
@@ -299,9 +301,9 @@ app.post('/toggleUser', function(req, res) {
   });
 });
 
-app.get('/*', function(req, res) {
-  res.send('Redirect');
-});
+// app.get('/*', function(req, res) {
+//   res.send('Redirect');
+// });
 
 var server = app.listen((process.env.PORT || 4000), function() {
   var host = server.address().address;
